@@ -1,3 +1,15 @@
+const numberButton = document.querySelectorAll('.number');
+const operatorButton = document.querySelectorAll('.operator');
+const clearButton = document.querySelector('.clear');
+const deleteButton = document.querySelector('.delete')
+const showResult = document.querySelector('.result');
+const currentOperand = document.querySelector('.current-operand');
+const previousOperand = document.querySelector('.previous-operand');
+const equalsKey = document.querySelector('.equals-key');
+
+currentOperand.textContent = ' ';
+previousOperand.textContent = ' ';
+
 const add = function(a, b) {
     let sum = a + b;
     return sum;
@@ -65,5 +77,6 @@ function operateX
         else {
                 document.getElementById("display").textContent = store;
         }
+    return document.getElementById("display").textContent;
     };
 
