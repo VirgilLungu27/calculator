@@ -18,7 +18,7 @@ const divide = function(a, b) {
     return quotient;
 }
 
-function calculator (a, b, c) {
+function operate (a, b, c) {
   let output = 0;
 
   try {
