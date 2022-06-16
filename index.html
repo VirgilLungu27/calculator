@@ -28,20 +28,5 @@
     <button value="clear">clear</button>
     </div>
   </div>
-    <script>
-        let store = '';
-        function valueInput(n) {
-            store = store + n;
-            if (n === "clear") {
-                document.getElementById("display").textContent = 0;
-            }
-            else if (store === '') {
-                document.getElementById("display").textContent = n;
-            }
-            else {
-                document.getElementById("display").textContent = store;
-        }
-    };
-    </script>
 </body>
 </html>

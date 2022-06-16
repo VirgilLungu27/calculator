@@ -18,7 +18,8 @@ const divide = function(a, b) {
     return quotient;
 }
 
-function operate (a, b, c) {
+function operateX
+ (a, b, c) {
   let output = 0;
 
   try {
@@ -51,4 +52,18 @@ function operate (a, b, c) {
 
   return output;
 }
+
+  function valueInput(n) {
+        let store = '';
+        store = store + n;
+        if (n === "clear") {
+                document.getElementById("display").textContent = 0;
+            }
+        else if (store === '') {
+                document.getElementById("display").textContent = n;
+            }
+        else {
+                document.getElementById("display").textContent = store;
+        }
+    };
 
