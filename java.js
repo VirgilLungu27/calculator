@@ -1,3 +1,4 @@
+// DOM elements 
 const numberButton = document.querySelectorAll('.number');
 const operatorButton = document.querySelectorAll('.operator');
 const clearButton = document.querySelector('.clear');
@@ -10,67 +11,50 @@ const equalsKey = document.querySelector('.equals-key');
 currentOperand.textContent = ' ';
 previousOperand.textContent = ' ';
 
-const add = function(a, b) {
-    let sum = a + b;
-    return sum;
-}
+// Sum of a, b ... 
+function add(a, b) {
+  return a + b;
+};
 
-const subtract = function(a, b) {
-    let remainder = a - b;
-    return remainder;
-}
+// Subtraction of a and b ...
+function subtract(a, b) {
+  return a - b;
+};
 
-const multiply = function(a, b) {
-    let multi = a * b;
-    return multi;
-}
+// Multiply a, b ... 
+function multiply(a, b) {
+  return a * b;
+};
 
-const divide = function(a, b) {
-    let quotient = a / b;
-    return quotient;
-}
+// Divide a,b ... 
+function divide(a, b) {
+  return a / b;
+};
 
-function operateX
- (a, b, c) {
-  let output = 0;
-
-  try {
-
-    switch(c) {
-      case '+':
-        output = a + b
-        break;
-
-      case '*':
-        output = a * b
-        break;
-
-      case '-':
-        output = a - b
-        break;
-
-     case '/': 
-        if (b === 0) {
-          throw "Can't divide by 0!"
-        } else {
-          output = a / b
-        }
-        break;
-    }
+// Create a new function operate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
+function operate(num1, num2, operator) {
+  switch (operator) {
+    case "+":
+      return add(num1, num2);
+    case "-":
+      return subtract(num1, num2);
+    case "*":
+      return multiply(num1, num2);
+    case "/":
+      return divide(num1, num2);
   }
-  catch(e) {
-    console.log("There's an error: ", e)
-  }
+};
 
-  return output;
-}
-
+//Create the functions that populate the display when you click the 
+//number buttons… you should be storing the ‘display value’ in a variable somewhere 
+//for use in the next step.
 
 let storedNumber = '';
 let clickedOperator = ''
 let firstNumber = '';
 let result = '';
 currentOperand.textContent = 0;
+
 
 numberButton.forEach((number) => {
   number.addEventListener('click', function() {
@@ -110,4 +94,3 @@ function displayResult() {
   storedNumber = result;
   console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber);
 }
-
