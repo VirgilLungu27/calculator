@@ -72,3 +72,42 @@ let firstNumber = '';
 let result = '';
 currentOperand.textContent = 0;
 
+numberButton.forEach((number) => {
+  number.addEventListener('click', function() {
+    storedNumber += number.value;
+    currentOperand.textContent = storedNumber;
+  })
+});
+
+operatorButton.forEach((operator => {
+  operator.addEventListener('click', function() {
+    if (firstNumber && storedNumber) {
+      displayResult();
+    }
+    // save the first number
+    firstNumber = storedNumber;
+
+    // get the operator that was clicked
+    clickedOperator = operator.textContent;
+    previousOperand.textContent = storedNumber + clickedOperator;
+    storedNumber = '';
+
+    console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber)
+    console.log(clickedOperator);
+
+  })
+}));
+
+equalsKey.addEventListener('click', function() {
+  displayResult();
+});
+
+function displayResult() {
+  result = operate(parseFloat(firstNumber), parseFloat(storedNumber), clickedOperator)
+  // update content of current operation with result and previous operand with the calculation, make storedNumber = result
+  currentOperand.textContent = result;
+  previousOperand.textContent = firstNumber + ' ' + clickedOperator + ' ' + storedNumber;
+  storedNumber = result;
+  console.log('FirstNumber' + firstNumber + 'Stored' + storedNumber);
+}
+
